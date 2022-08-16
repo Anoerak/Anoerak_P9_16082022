@@ -6,6 +6,6 @@ beforeAll(async () => {
 beforeEach(async () => {
   await fixtures.reset()
 });
-//afterAll(async () => {
-//  await fixtures.clear();
-//});
+afterAll(async () => {
+ await fixtures.clear();
+});
