@@ -95,7 +95,7 @@ export default class {
       $(`#open-bill${bill.id}`).css({ background: '#2A2B35' })
       $('.dashboard-right-container div').html(DashboardFormUI(bill))
       $('.vertical-navbar').css({ height: '150vh' })
-      // Fix Bug of the Dashboard by removing the counter++
+      this.counter ++
     } else {
       $(`#open-bill${bill.id}`).css({ background: '#0D5AE5' })
 
@@ -134,20 +134,19 @@ export default class {
     if (this.counter === undefined || this.index !== index) this.counter = 0
     if (this.index === undefined || this.index !== index) this.index = index
     if (this.counter % 2 === 0) {
-      $(`#arrow-icon${this.index}`).css({ transform: 'rotate(0deg)'})
-      $(`#status-bills-container${this.index}`)
-        .html(cards(filteredBills(bills, getStatus(this.index))))
-      this.counter ++
-    } else {
-      $(`#arrow-icon${this.index}`).css({ transform: 'rotate(90deg)'})
-      $(`#status-bills-container${this.index}`)
-        .html("")
-      this.counter ++
-    }
+		const filteredBillsDatas = filteredBills(bills, getStatus(this.index));
+		$(`#arrow-icon${this.index}`).css({ transform: 'rotate(0deg)'})
+		$(`#status-bills-container${this.index}`).html(cards(filteredBillsDatas)) 
+		this.counter ++
+		filteredBillsDatas.forEach(bill => {
+			$(`#open-bill${bill.id}`).click((e) => this.handleEditTicket(e, bill, bills))
+		})
 
-    bills.forEach(bill => {
-      $(`#open-bill${bill.id}`).click((e) => this.handleEditTicket(e, bill, bills))
-    })
+	} else {
+		$(`#arrow-icon${this.index}`).css({ transform: 'rotate(90deg)'})
+		$(`#status-bills-container${this.index}`).html("")
+		this.counter ++
+	}
 
     return bills
 
