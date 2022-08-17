@@ -60,16 +60,16 @@ export default () => {
     }
   }
 
-  window.onpopstate = (e) => {
-    const user = JSON.parse(localStorage.getItem('user'))
-    if (window.location.pathname === "/" && !user) {
-      document.body.style.backgroundColor="#0E5AE5"
-      rootDiv.innerHTML = ROUTES({ pathname: window.location.pathname })
-    }
-    else if (user) {
-      onNavigate(PREVIOUS_LOCATION)
-    }
-  }
+  // window.onpopstate = (e) => {
+  //   const user = JSON.parse(localStorage.getItem('user'))
+  //   if (window.location.pathname === "/" && !user) {
+  //     document.body.style.backgroundColor="#0E5AE5"
+  //     rootDiv.innerHTML = ROUTES({ pathname: window.location.pathname })
+  //   }
+  //   else if (user) {
+  //     onNavigate(PREVIOUS_LOCATION)
+  //   }
+  // }
 
   if (window.location.pathname === "/" && window.location.hash === "") {
     new Login({ document, localStorage, onNavigate, PREVIOUS_LOCATION, store })
