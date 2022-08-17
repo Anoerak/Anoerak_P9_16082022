@@ -127,8 +127,8 @@ describe("Given I am connected as an Employee and The Page is Loaded without Err
 // Integration Tests
 /// Method GET
 describe('Given I am connected as an employee', () => {
-  describe('When I am on Bills Page', () => {
-    test("fetches bills from mock API GET", async () => {
+  describe('When I request the Bills Page', () => {
+    test("Fetches Bills from Mock API GET", async () => {
       localStorage.setItem("user", JSON.stringify({ type: "Employee", email: "a@a" }));
       const root = document.createElement("div")
       root.setAttribute("id", "root")
@@ -138,9 +138,7 @@ describe('Given I am connected as an employee', () => {
       expect(await waitFor(() => screen.getByText('Mes notes de frais'))).toBeTruthy()
     })
   })
-
-
-  describe("When an error occurs on API", () => {
+  describe("When an Error Occurs in the Request", () => {
     beforeEach(() => {
       jest.spyOn(mockStore, "bills")
       Object.defineProperty(
@@ -150,16 +148,15 @@ describe('Given I am connected as an employee', () => {
       )
       window.localStorage.setItem('user', JSON.stringify({
         type: 'Employee',
-        email: "a@a"
+        email: "r@domEm@il"
       }))
       const root = document.createElement("div")
       root.setAttribute("id", "root")
       document.body.appendChild(root)
       router()
     })
-
     // 404 Error Test
-    test("fetches bills from an API and fails with 404 message error", async () => {
+    test("Fetches Bills from an API and Fails with 404 Message Error", async () => {
       mockStore.bills.mockImplementationOnce(() => {
         return {
           list : () =>  {
@@ -171,9 +168,8 @@ describe('Given I am connected as an employee', () => {
       const message = await waitFor(() => screen.getByText(/Erreur 404/))
       expect(message).toBeTruthy()
     })
-
     // 500 Error Test
-    test("fetches messages from an API and fails with 500 message error", async () => {
+    test("Fetches Messages from an API and Fails with 500 Message Error", async () => {
       mockStore.bills.mockImplementationOnce(() => {
         return {
           list : () =>  {
