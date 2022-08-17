@@ -7,7 +7,6 @@
  import { screen, fireEvent, getByTestId, waitFor } from "@testing-library/dom"
  import mockStore from "../__mocks__/store.js"
  import { localStorageMock } from "../__mocks__/localStorage.js"
- import NewBillUI from '../views/NewBillUI.js'
  import NewBill from "../containers/NewBill.js"
  import { ROUTES, ROUTES_PATH } from "../constants/routes.js"
  import router from "../app/Router.js"
