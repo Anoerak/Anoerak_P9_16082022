@@ -7,6 +7,7 @@
  import { screen, fireEvent, getByTestId, waitFor } from "@testing-library/dom"
  import mockStore from "../__mocks__/store.js"
  import { localStorageMock } from "../__mocks__/localStorage.js"
+ import NewBillUI from '../views/NewBillUI.js'
  import NewBill from "../containers/NewBill.js"
  import { ROUTES, ROUTES_PATH } from "../constants/routes.js"
  import router from "../app/Router.js"
@@ -29,6 +30,73 @@ describe("Given I am connected as an employee", () => {
 			await waitFor(() => screen.getByTestId('icon-mail'))
 			const windowIcon = screen.getByTestId('icon-mail')
 			expect(windowIcon).toHaveClass('active-icon')
+		})
+		describe("When I Upload a File and the MIME is not Allowed...", () => {
+			test("...An Error Message is Displayed", async () => {
+				const onNavigate = (pathname) => {
+					document.body.innerHTML = ROUTES({ pathname })
+				}
+				Object.defineProperty(window, 'localStorage', { value: localStorageMock })
+				window.localStorage.setItem('user', JSON.stringify({
+					type: 'Employee'
+				}))
+				const newBill = new NewBill({
+					document, onNavigate, store: mockStore, localStorage: localStorageMock
+				})
+				const handleChangeFile = jest.fn(newBill.handleChangeFile)
+				const inputFile = screen.getByTestId("file")
+				inputFile.addEventListener("change", handleChangeFile)
+				fireEvent.change(inputFile, {
+					target: {
+						files: [
+							new File(["document.txt"], "document.txt", {
+								type: "document/txt"
+							})
+						]
+					}
+				  })
+				  expect(screen.getByText("Envoyer une note de frais")).toBeTruthy()
+				  expect(handleChangeFile).toBeCalled()
+				  await waitFor(() => getByTestId(document.body, "file-error-message"))
+				  expect(getByTestId(document.body, "file-error-message").classList).not.toContain("hidden")			
+			})	
+		})
+		describe("When I Upload a File and the MIME is Allowed...", () => {
+			test("...Te Name of the File Appears in the Input", async () => {
+				const onNavigate = (pathname) => {
+					document.body.innerHTML = ROUTES({ pathname })
+				}
+				Object.defineProperty(window, 'localStorage', { value: localStorageMock })
+				window.localStorage.setItem('user', JSON.stringify({
+					type: 'Employee'
+				}))
+				const newBill = new NewBill({
+					document, 
+					onNavigate, 
+					store: mockStore, 
+					localeStorage: localStorageMock
+				})
+				const handleChangeFile = jest.fn(newBill.handleChangeFile)
+				const inputFile = screen.getByTestId("file")
+				inputFile.addEventListener("change", handleChangeFile)
+				fireEvent.change(inputFile, {
+					target: {
+					files: [
+						new File(["image.png"], "image.png", {
+							type: "image/png"
+						})
+					]}
+				})
+				expect(screen.getByText("Envoyer une note de frais")).toBeTruthy()
+				expect(handleChangeFile).toBeCalled()
+				await waitFor(() => getByTestId(document.body, "file-error-message"))
+				expect(getByTestId(document.body, "file-error-message").classList).toContain("hidden")
+				setTimeout(async () => {
+					await waitFor(() => screen.getByText("image.png"))
+				expect(screen.getByText("image.png")).toBeTruthy()
+				expect(inputFile.files[0].name).toBe("image.png")
+				}, 1000)
+			})
 		})
 	})
 })

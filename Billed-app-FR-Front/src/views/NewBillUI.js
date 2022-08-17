@@ -27,7 +27,7 @@ export default () => {
                   </div>
                   <div class="col-half">
                     <label for="expense-name" class="bold-label">Nom de la dépense</label>
-                    <input type="text" class="form-control blue-border" data-testid="expense-name" placeholder="Vol Paris Londres" />
+                    <input required type="text" class="form-control blue-border" data-testid="expense-name" placeholder="Vol Paris Londres" />
                   </div>
                   <div class="col-half">
                     <label for="datepicker" class="bold-label">Date</label>
@@ -57,6 +57,9 @@ export default () => {
                     <label for="file" class="bold-label">Justificatif</label>
                     <!-- Bug Fix to Avoid the User to Upload the Wrong File Type! -->
                     <input required type="file" accept=".jpeg, .png, .jpg" class="form-control blue-border" data-testid="file" />
+                    <span class="error-message hidden" data-testid="file-error-message">
+                      Attention au format de votre justificatif. Liste des extensions valides : png, jpeg ou jpg.
+                    </span>
                   </div>
                 </div>
             </div>

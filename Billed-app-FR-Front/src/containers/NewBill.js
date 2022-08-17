@@ -17,12 +17,13 @@ export default class NewBill {
   }
   handleChangeFile = e => {
     e.preventDefault()
-    const file = this.document.querySelector(`input[data-testid="file"]`).files[0]
+    const file = e.target.files[0]
     const filePath = e.target.value.split(/\\/g)
     const fileName = filePath[filePath.length-1]
     // Bug Fix to Avoid File Upload Error
     const fileType = file.type.split('/')[1]
     if (fileType === 'png' || fileType === 'jpg' || fileType === 'jpeg') {
+      this.document.querySelector(".error-message").classList.add("hidden")
       const formData = new FormData()
       const email = JSON.parse(localStorage.getItem("user")).email
       formData.append('file', file)
@@ -43,7 +44,11 @@ export default class NewBill {
           this.fileName = fileName
         }).catch(error => console.error(error))
       } else {
-        alert('Please upload a valid image file (jpeg, jpg or png')
+        e.preventDefault()
+        this.document.querySelector(`[data-testid="file"]`).value = ""
+        this.document.querySelector(".error-message").classList.remove("hidden")
+        // alert('Please upload a valid image format (jpeg, jpg or png')
+        return false
       }
   }
   handleSubmit = e => {

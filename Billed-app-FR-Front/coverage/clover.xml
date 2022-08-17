@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1660709368253" clover="3.2.0">
-  <project timestamp="1660709368253" name="All files">
-    <metrics statements="225" coveredstatements="186" conditionals="99" coveredconditionals="81" methods="69" coveredmethods="53" elements="393" coveredelements="320" complexity="0" loc="225" ncloc="225" packages="3" files="16" classes="16"/>
+<coverage generated="1660740024999" clover="3.2.0">
+  <project timestamp="1660740024999" name="All files">
+    <metrics statements="229" coveredstatements="190" conditionals="99" coveredconditionals="81" methods="69" coveredmethods="53" elements="397" coveredelements="324" complexity="0" loc="229" ncloc="229" packages="3" files="16" classes="16"/>
     <package name="constants">
       <metrics statements="8" coveredstatements="8" conditionals="5" coveredconditionals="5" methods="1" coveredmethods="1"/>
       <file name="routes.js" path="/Users/sebastien/Sebbe's Cloud/School/OpenClassRooms/2 - OCR - Software Developper - JS & React/Projet 9 (60h)/P9 - Mission/#Code/bill-app/Billed-app-FR-Front/src/constants/routes.js">
@@ -20,7 +20,7 @@
       </file>
     </package>
     <package name="containers">
-      <metrics statements="188" coveredstatements="149" conditionals="62" coveredconditionals="44" methods="53" coveredmethods="37"/>
+      <metrics statements="192" coveredstatements="153" conditionals="62" coveredconditionals="44" methods="53" coveredmethods="37"/>
       <file name="Bills.js" path="/Users/sebastien/Sebbe's Cloud/School/OpenClassRooms/2 - OCR - Software Developper - JS & React/Projet 9 (60h)/P9 - Mission/#Code/bill-app/Billed-app-FR-Front/src/containers/Bills.js">
         <metrics statements="26" coveredstatements="24" conditionals="6" coveredconditionals="4" methods="8" coveredmethods="8"/>
         <line num="7" count="38" type="stmt"/>
@@ -181,7 +181,7 @@
         <line num="13" count="2" type="stmt"/>
       </file>
       <file name="NewBill.js" path="/Users/sebastien/Sebbe's Cloud/School/OpenClassRooms/2 - OCR - Software Developper - JS & React/Projet 9 (60h)/P9 - Mission/#Code/bill-app/Billed-app-FR-Front/src/containers/NewBill.js">
-        <metrics statements="41" coveredstatements="40" conditionals="9" coveredconditionals="8" methods="8" coveredmethods="7"/>
+        <metrics statements="45" coveredstatements="44" conditionals="9" coveredconditionals="8" methods="8" coveredmethods="7"/>
         <line num="6" count="7" type="stmt"/>
         <line num="7" count="7" type="stmt"/>
         <line num="8" count="7" type="stmt"/>
@@ -204,25 +204,29 @@
         <line num="27" count="5" type="stmt"/>
         <line num="28" count="5" type="stmt"/>
         <line num="29" count="5" type="stmt"/>
-        <line num="31" count="5" type="stmt"/>
-        <line num="40" count="5" type="stmt"/>
+        <line num="30" count="5" type="stmt"/>
+        <line num="32" count="5" type="stmt"/>
         <line num="41" count="5" type="stmt"/>
         <line num="42" count="5" type="stmt"/>
         <line num="43" count="5" type="stmt"/>
-        <line num="44" count="0" type="stmt"/>
-        <line num="46" count="3" type="stmt"/>
-        <line num="49" count="7" type="stmt"/>
-        <line num="50" count="6" type="stmt"/>
-        <line num="51" count="6" type="stmt"/>
-        <line num="52" count="6" type="stmt"/>
-        <line num="53" count="6" type="stmt"/>
-        <line num="66" count="6" type="stmt"/>
-        <line num="67" count="6" type="stmt"/>
-        <line num="71" count="7" type="stmt"/>
-        <line num="72" count="6" type="cond" truecount="1" falsecount="1"/>
-        <line num="73" count="6" type="stmt"/>
-        <line num="77" count="5" type="stmt"/>
-        <line num="79" count="1" type="stmt"/>
+        <line num="44" count="5" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="47" count="3" type="stmt"/>
+        <line num="48" count="3" type="stmt"/>
+        <line num="49" count="3" type="stmt"/>
+        <line num="51" count="3" type="stmt"/>
+        <line num="54" count="7" type="stmt"/>
+        <line num="55" count="6" type="stmt"/>
+        <line num="56" count="6" type="stmt"/>
+        <line num="57" count="6" type="stmt"/>
+        <line num="58" count="6" type="stmt"/>
+        <line num="71" count="6" type="stmt"/>
+        <line num="72" count="6" type="stmt"/>
+        <line num="76" count="7" type="stmt"/>
+        <line num="77" count="6" type="cond" truecount="1" falsecount="1"/>
+        <line num="78" count="6" type="stmt"/>
+        <line num="82" count="5" type="stmt"/>
+        <line num="84" count="1" type="stmt"/>
       </file>
     </package>
     <package name="views">
