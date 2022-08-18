@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1660748974231" clover="3.2.0">
-  <project timestamp="1660748974231" name="All files">
+<coverage generated="1660825619221" clover="3.2.0">
+  <project timestamp="1660825619221" name="All files">
     <metrics statements="231" coveredstatements="204" conditionals="99" coveredconditionals="82" methods="69" coveredmethods="55" elements="399" coveredelements="341" complexity="0" loc="231" ncloc="231" packages="3" files="16" classes="16"/>
     <package name="constants">
       <metrics statements="8" coveredstatements="8" conditionals="5" coveredconditionals="5" methods="1" coveredmethods="1"/>
@@ -116,17 +116,17 @@
         <line num="140" count="5" type="stmt"/>
         <line num="141" count="5" type="stmt"/>
         <line num="142" count="6" type="stmt"/>
+        <line num="145" count="0" type="stmt"/>
         <line num="146" count="0" type="stmt"/>
         <line num="147" count="0" type="stmt"/>
-        <line num="148" count="0" type="stmt"/>
-        <line num="151" count="5" type="stmt"/>
-        <line num="155" count="14" type="stmt"/>
-        <line num="156" count="5" type="cond" truecount="1" falsecount="1"/>
-        <line num="157" count="5" type="stmt"/>
-        <line num="161" count="3" type="stmt"/>
-        <line num="162" count="12" type="stmt"/>
-        <line num="168" count="3" type="stmt"/>
-        <line num="171" count="2" type="stmt"/>
+        <line num="150" count="5" type="stmt"/>
+        <line num="154" count="14" type="stmt"/>
+        <line num="155" count="5" type="cond" truecount="1" falsecount="1"/>
+        <line num="156" count="5" type="stmt"/>
+        <line num="160" count="3" type="stmt"/>
+        <line num="161" count="12" type="stmt"/>
+        <line num="167" count="3" type="stmt"/>
+        <line num="170" count="2" type="stmt"/>
       </file>
       <file name="Login.js" path="/Users/sebastien/Sebbe's Cloud/School/OpenClassRooms/2 - OCR - Software Developper - JS & React/Projet 9 (60h)/P9 - Mission/#Code/bill-app/Billed-app-FR-Front/src/containers/Login.js">
         <metrics statements="41" coveredstatements="22" conditionals="4" coveredconditionals="0" methods="11" coveredmethods="3"/>

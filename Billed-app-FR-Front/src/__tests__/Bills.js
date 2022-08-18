@@ -29,12 +29,13 @@ describe("Given I am connected as an employee", () => {
 
 	describe("When I am on the Employee Dashboard Page...", () => {
     	test("...Then Bill icon in VerticalLayout should be Highlighted", async () => {
-			Object.defineProperty(window, 'localStorage', { 
-        		value: localStorageMock 
-      		})
-      		window.localStorage.setItem('user', JSON.stringify({
-				type: 'Employee'
-			}))
+			Object.defineProperty(
+				window, 
+				'localStorage', { value: localStorageMock }
+			)
+      		window.localStorage.setItem(
+				'user', JSON.stringify({type: 'Employee'})
+			)
       		const root = document.createElement("div")
       		root.setAttribute("id", "root")
       		document.body.append(root)
@@ -46,7 +47,9 @@ describe("Given I am connected as an employee", () => {
     	})
 
     	test("Then Bills Should be Ordered from Earliest to Latest", () => {
-			document.body.innerHTML = BillsUI({ data: bills })
+			document.body.innerHTML = BillsUI({ 
+				data: bills 
+			})
 			const dates = screen.getAllByText(/^(19|20)\d\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$/i).map(a => a.innerHTML)
 			const antiChrono = (a, b) => ((a < b) ? 1 : -1)
       		const datesSorted = [...dates].sort(antiChrono)
@@ -70,12 +73,13 @@ describe("Given I am connected as an employee", () => {
 describe("Given I am connected as an Employee and The Page is Loaded without Error...", () => {
   	describe("When I Click to create a Request...", () => {
    		 test("...Then I Should be Redirected to the New Bill Page", () => {
-      		Object.defineProperty(window, 'localStorage', { 
-        		value: localStorageMock 
-      		})
-			window.localStorage.setItem('user', JSON.stringify({
-        		type: 'Employee'
-      		}))
+      		Object.defineProperty(
+				window, 
+				'localStorage', { value: localStorageMock }
+			)
+			window.localStorage.setItem(
+				'user', JSON.stringify({type: 'Employee'})
+			)
       		const html = BillsUI({
 				data : bills
 			})
@@ -83,7 +87,12 @@ describe("Given I am connected as an Employee and The Page is Loaded without Err
       		const onNavigate = (pathname) => {
 				document.body.innerHTML = ROUTES({pathname})
       		}
-			const mockBills = new Bills({document, onNavigate, localStorage: window.localStorage, store: null});
+			const mockBills = new Bills({
+				document, 
+				onNavigate, 
+				localStorage: window.localStorage, 
+				store: null
+			});
       		const btnNewBill = screen.getByTestId('btn-new-bill');
 
       		// Mock Handle Click for New Bill
@@ -95,8 +104,14 @@ describe("Given I am connected as an Employee and The Page is Loaded without Err
   	})
   	describe("When I Click on the Preview Icon...", () => {
     	test("...Then the Modal Should Open", () => {
-      		Object.defineProperty(window, localStorage, {value: localStorageMock})
-      		window.localStorage.setItem("user", JSON.stringify({type: 'Employee'}))
+      		Object.defineProperty(
+				window, 
+				localStorage, 
+				{value: localStorageMock}
+			)
+      		window.localStorage.setItem(
+				"user", JSON.stringify({type: 'Employee'})
+			)
       		const html = BillsUI({
 				data: bills
 			})
@@ -135,10 +150,12 @@ describe("Given I am connected as an Employee and The Page is Loaded without Err
 describe('Given I am connected as an employee', () => {
   	describe('When I request the Bills Page...', () => {
     	test("...Fetch Bills from Mock API GET", async () => {
-      		localStorage.setItem("user", JSON.stringify({ 
-				type: "Employee", 
-				email: "random@email" 
-			}));
+      		localStorage.setItem(
+				"user", JSON.stringify({ 
+					type: "Employee", 
+					email: "random@email"
+				})
+			);
 			const root = document.createElement("div")
       		root.setAttribute("id", "root")
       		document.body.append(root)
@@ -153,13 +170,14 @@ describe('Given I am connected as an employee', () => {
 			jest.spyOn(mockStore, "bills")
 			Object.defineProperty(
 				window,
-				'localStorage',
-				{ value: localStorageMock }
+				'localStorage',{ value: localStorageMock }
 			)
-			window.localStorage.setItem('user', JSON.stringify({
-        		type: 'Employee',
-        		email: "random@email"
-      		}))
+			window.localStorage.setItem(
+				'user', JSON.stringify({
+					type: 'Employee',
+					email: "random@email"
+      			})
+			)
       		const root = document.createElement("div")
       		root.setAttribute("id", "root")
       		document.body.appendChild(root)
