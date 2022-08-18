@@ -141,7 +141,6 @@ export default class {
 		filteredBillsDatas.forEach(bill => {
 			$(`#open-bill${bill.id}`).click((e) => this.handleEditTicket(e, bill, bills))
 		})
-
 	} else {
 		$(`#arrow-icon${this.index}`).css({ transform: 'rotate(90deg)'})
 		$(`#status-bills-container${this.index}`).html("")
