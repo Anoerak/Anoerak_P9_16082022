@@ -142,7 +142,7 @@ describe("When I Submit a Form from the NewBill", () => {
 			mockStore.bills.mockImplementationOnce(() => {
 				return {
 					update: () => {
-						return Promise.reject(new Error("Une Erreur est Survenu"))
+						return Promise.reject(new Error("Une Erreur est Survenue"))
 					}
 				}
 			})
